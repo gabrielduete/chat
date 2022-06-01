@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react"
 import io from "socket.io-client"
 import { v4 as uuid } from "uuid"
 
+import * as S from "./styles"
+
 const myId = uuid()
 const socket = io("http://localhost:8080", { transports: ["websocket"] })
 socket.on("connect", () => console.log("New Connection"))
@@ -32,22 +34,22 @@ const Chat = () => {
 
   return (
     <>
-      <h1>Chat</h1>
-      <main>
-        <ul>
+      <S.Title>Chat Biruta</S.Title>
+      <S.Wrapper>
+        <S.List>
           {allMessages.map((m, idx) => (
-            <li key={idx}>{m.message}</li>
+            <S.Message key={idx}>{m.message}</S.Message>
           ))}
-        </ul>
+        </S.List>
         <form onSubmit={handleFormSubmit}>
-          <input
+          <S.InputMessage
             type="text"
             placeholder="Type a new message here"
             value={message}
             onChange={handleInputChange}
           />
         </form>
-      </main>
+      </S.Wrapper>
     </>
   )
 }
