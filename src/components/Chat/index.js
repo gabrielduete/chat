@@ -33,24 +33,26 @@ const Chat = () => {
   const handleInputChange = (event) => setMessage(event.target.value)
 
   return (
-    <>
-      <S.Title>Chat Biruta</S.Title>
+    <S.Contain>
       <S.Wrapper>
         <S.List>
           {allMessages.map((m, idx) => (
-            <S.Message key={idx}>{m.message}</S.Message>
+            <S.Message key={idx} id={m.id === myId ? true : false}>
+              {console.log(m.id)}
+              {m.message}
+            </S.Message>
           ))}
         </S.List>
-        <form onSubmit={handleFormSubmit}>
+        <S.Form onSubmit={handleFormSubmit}>
           <S.InputMessage
             type="text"
             placeholder="Type a new message here"
             value={message}
             onChange={handleInputChange}
           />
-        </form>
+        </S.Form>
       </S.Wrapper>
-    </>
+    </S.Contain>
   )
 }
 export default Chat
