@@ -5,9 +5,11 @@ const GlobalStyles = createGlobalStyle`
     // Colors
     --white: #ffff;
     --gray: #5F627A;
+    --gray-strong: #75756A;
     --black: #0E0D12;
     --black-strong: #252331;
     --black-weak: #343145;
+    --black-weak-2: #4c4466;
     --blue-strong: #1951FC;
     --blue-weak: #3384FE;
     // Spaces
@@ -35,7 +37,6 @@ const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar {
     width: 5px;
   }
-
   ::-webkit-scrollbar-track {
     background: none;
   }
