@@ -33,7 +33,6 @@ export const List = styled.ul`
   flex-direction: column;
 
   overflow-x: hidden;
-  scroll-behavior: auto;
 
   ::-webkit-scrollbar {
     display: none;
@@ -50,7 +49,7 @@ export const Message = styled.li`
     props.id ? "var(--blue-strong)" : "var(--black-weak)"};
   align-self: ${(props) => (props.id ? "flex-end" : "flex-start")};
   list-style: none;
-  border-radius: 30px;
+  border-radius: 15px;
   border-bottom-left-radius: ${(props) => !props.id && 0};
   border-bottom-right-radius: ${(props) => props.id && 0};
 

@@ -16,17 +16,32 @@ const GlobalStyles = createGlobalStyle`
     // Fonts
     --font-title: 4em;
     --font-medium: 1.5em;
+    --font-small: 'PT Sans', sans-serif;
   }
   
   body{
     background-color: var(--black);
     color: var(--white);
+    font-family: var(--font-small);
+    font-size: 0.95em;
   }
 
   *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--gray);
+    border-radius: 100px;
   }
 `
 

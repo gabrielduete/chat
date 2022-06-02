@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import io from "socket.io-client"
 import { v4 as uuid } from "uuid"
+import ReactScrollableFeed from "react-scrollable-feed"
 
 import * as S from "./styles"
 
@@ -35,14 +36,16 @@ const Chat = () => {
   return (
     <S.Contain>
       <S.Wrapper>
-        <S.List>
-          {allMessages.map((m, idx) => (
-            <S.Message key={idx} id={m.id === myId ? true : false}>
-              {console.log(m.id)}
-              {m.message}
-            </S.Message>
-          ))}
-        </S.List>
+        <ReactScrollableFeed forceScroll={true}>
+          <S.List>
+            {allMessages.map((m, idx) => (
+              <S.Message key={idx} id={m.id === myId ? true : false}>
+                {console.log(m.id)}
+                {m.message}
+              </S.Message>
+            ))}
+          </S.List>
+        </ReactScrollableFeed>
         <S.Form onSubmit={handleFormSubmit}>
           <S.InputMessage
             type="text"
@@ -55,4 +58,5 @@ const Chat = () => {
     </S.Contain>
   )
 }
+
 export default Chat
