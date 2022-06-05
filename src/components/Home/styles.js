@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 export const Wrapper = styled.main`
   display: flex;
@@ -69,12 +70,15 @@ export const LabelInput = styled.label`
   cursor: pointer;
 `
 
-export const InputJoin = styled.input`
-  height: 40px;
+export const ButtonJoin = styled(Link)`
+  height: 45px;
   padding: 15px;
   margin-top: 10px;
   width: 100%;
   outline: none;
+  display: block;
+  text-align: center;
+  text-decoration: none;
 
   border: none;
   border-radius: 5px;
