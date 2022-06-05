@@ -39,6 +39,16 @@ export const List = styled.ul`
   }
 `
 
+export const WrapperMessage = styled.div`
+  display: flex;
+  flex-direction: ${(props) => (props.id ? "row" : "row-reverse")};
+  align-self: ${(props) => (props.id ? "flex-end" : "flex-start")};
+
+  margin-top: 10px;
+
+  justify-content: ${(props) => (props.id ? "flex-end" : "flex-start")};
+`
+
 export const Message = styled.li`
   max-width: 245px;
   width: auto;
@@ -66,4 +76,11 @@ export const InputMessage = styled.input`
   border-radius: 5px;
   background-color: var(--black);
   color: var(--white);
+`
+
+export const Photo = styled.img`
+  width: 40px;
+  height: 40px;
+  margin: 40px ${(props) => (props.id ? "10px" : "0px")} 0 0;
+  border-radius: 50%;
 `

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import io from "socket.io-client"
 import { v4 as uuid } from "uuid"
 import ReactScrollableFeed from "react-scrollable-feed"
+import { useProfile } from "../../context/Profile"
 
 import * as S from "./styles"
 
@@ -12,6 +13,8 @@ socket.on("connect", () => console.log("New Connection"))
 const Chat = () => {
   const [message, setMessage] = useState("")
   const [allMessages, setAllMessages] = useState([])
+
+  const { userSets } = useProfile()
 
   useEffect(() => {
     const handleNewMessage = (newMessage) =>
@@ -39,10 +42,17 @@ const Chat = () => {
         <ReactScrollableFeed forceScroll={true}>
           <S.List>
             {allMessages.map((m, idx) => (
-              <S.Message key={idx} id={m.id === myId ? true : false}>
-                {console.log(m.id)}
-                {m.message}
-              </S.Message>
+              <S.WrapperMessage id={m.id === myId ? true : false}>
+                <S.Message key={idx} id={m.id === myId ? true : false}>
+                  {m.message}
+                </S.Message>
+                <S.Photo
+                  src={userSets[0].photo}
+                  alt="image profile"
+                  id={m.id === myId ? true : false}
+                />
+                {console.log(userSets)}
+              </S.WrapperMessage>
             ))}
           </S.List>
         </ReactScrollableFeed>

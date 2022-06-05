@@ -18,11 +18,13 @@ const Home = () => {
     event.preventDefault()
     !!userName && !!userPhoto ? navigate("/chat") : setStyleWarning(true)
 
-    setUserSets({
+    setUserSets([
       ...userSets,
-      name: userName,
-      photo: userPhoto,
-    })
+      {
+        name: userName,
+        photo: userPhoto,
+      },
+    ])
   }
 
   const handleSendPhoto = (e) => {
