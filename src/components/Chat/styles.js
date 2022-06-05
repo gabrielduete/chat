@@ -84,3 +84,9 @@ export const Photo = styled.img`
   margin: 40px ${(props) => (props.id ? "10px" : "0px")} 0 0;
   border-radius: 50%;
 `
+
+export const Text = styled.p`
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+`

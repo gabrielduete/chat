@@ -39,6 +39,7 @@ const Chat = () => {
   return (
     <S.Contain>
       <S.Wrapper>
+        <S.Text>You are talking to {userSets[0].name}</S.Text>
         <ReactScrollableFeed forceScroll={true}>
           <S.List>
             {allMessages.map((m, idx) => (
@@ -51,7 +52,6 @@ const Chat = () => {
                   alt="image profile"
                   id={m.id === myId ? true : false}
                 />
-                {console.log(userSets)}
               </S.WrapperMessage>
             ))}
           </S.List>
