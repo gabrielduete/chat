@@ -1,8 +1,22 @@
 import React from "react"
+import { useProfile } from "../../context/Profile"
 
 import * as S from "./styles"
 
 const Home = () => {
+  const { userSets, setUserSets } = useProfile()
+
+  const handleGetValues = (event, name, photo) => {
+    event.preventDefault()
+
+    console.log("a")
+    setUserSets({
+      ...userSets,
+      name,
+      photo,
+    })
+  }
+
   return (
     <S.Wrapper>
       <S.Header>
@@ -11,9 +25,9 @@ const Home = () => {
       </S.Header>
       <S.Form>
         <S.InputName type="text" placeholder="Type you name..." />
-        <S.InputImage id="files" type="file" class="hidden" />
-        <S.LabelInput for="files">Send Photo</S.LabelInput>
-        <S.InputJoin type="submit" value="JOIN" />
+        <S.InputImage id="files" type="file" />
+        <S.LabelInput htmlFor="files">Send Photo</S.LabelInput>
+        <S.InputJoin type="submit" value="JOIN" onClick={handleGetValues} />
       </S.Form>
     </S.Wrapper>
   )
