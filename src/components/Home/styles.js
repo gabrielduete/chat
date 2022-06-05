@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom"
 
 export const Wrapper = styled.main`
   display: flex;
@@ -70,7 +69,7 @@ export const LabelInput = styled.label`
   cursor: pointer;
 `
 
-export const ButtonJoin = styled(Link)`
+export const ButtonJoin = styled.button`
   height: 45px;
   padding: 15px;
   margin-top: 10px;
@@ -85,4 +84,11 @@ export const ButtonJoin = styled(Link)`
   background-color: var(--blue-strong);
   color: var(--white);
   cursor: pointer;
+`
+
+export const Text = styled.p`
+  display: ${(props) => (props.visible ? "block" : "none")};
+  margin-top: 5px;
+  text-align: center;
+  color: var(--whtie);
 `
